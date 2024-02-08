@@ -42,7 +42,6 @@
         </div>
         </nav>
 
-        <h1>Je vais me foutre en l'air</h1>
 
         <!-- FOOTER -->
         <div class="container">
