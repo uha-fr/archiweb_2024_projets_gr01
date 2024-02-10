@@ -14,16 +14,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/archiweb_2024_projets_gr01/view/home">Home</a>
+                <a class="nav-link active" aria-current="page" href="/archiweb_2024_projets_gr01/view/home.php">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/archiweb_2024_projets_gr01/view/IngredientsView">Ingrédients</a>
+                <a class="nav-link" href="/archiweb_2024_projets_gr01/view/IngredientsView.php">Ingrédients</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/archiweb_2024_projets_gr01/view/RecettesView">Recettes</a>
+                <a class="nav-link" href="/archiweb_2024_projets_gr01/view/RecettesView.php">Recettes</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/archiweb_2024_projets_gr01/view/AdminView">Admin</a>
+                <a class="nav-link" href="/archiweb_2024_projets_gr01/view/AdminView.php">Admin</a>
             </li>
 
             </ul>

@@ -1,14 +1,21 @@
 <?php
 
-require_once 'model/RecettesModel.php';
+require_once '../model/RecettesModel.php';
 
-class RecettesController {
-    public static function show() {
-        // Récupérer les données des ingrédients depuis le modèle
-        $recettes = Model::getRecettes();
 
-        // Charger la vue des ingrédients
-        include_once 'views/RecettesView.php';
-    }
+function getAllRecette()
+{
+  //recupere les données de la bdd, pour toute les lignes --> créer des recette avec ses données
+  //retourne le tableau de tout les recettes
+
+  $t = new Recette("1","tarte a la tomate","Fruit","52","wwwJafji");
+  $e = new Recette("2","tarte a la pomme","Fruit","54","url");
+
+  $recettes = [$t,$e];
+  return $recettes;
 }
+
+$recettes = getAllRecette();
+
+
 ?>
