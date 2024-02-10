@@ -15,10 +15,10 @@ class Recette
     private $temps_cuisson;
 
     private $difficulte;
-
+    private $visibility;
     private $id_createur;
 
-    public function __construct($_id = NULL,$_nom = NULL ,$_description = NULL ,$_categorie = NULL,$_url_image = NULL, $_tableau_ingredients = NULL, $_tableau_ustensiles = NULL,$_temps_preparation = NULL,$_temps_cuisson = NULL,$_difficulte = NULL,$_id_createur = NULL){
+    public function __construct($_id = NULL,$_nom = NULL ,$_description = NULL ,$_categorie = NULL,$_url_image = NULL, $_tableau_ingredients = NULL, $_tableau_ustensiles = NULL,$_temps_preparation = NULL,$_temps_cuisson = NULL,$_difficulte = NULL,$_visibility = NULL,$_id_createur = NULL){
         $this->id = $_id;
         $this->nom = $_nom;
         $this->description = $_description;
@@ -32,6 +32,7 @@ class Recette
         $this->temps_cuisson = $_temps_cuisson;
 
         $this->difficulte = $_difficulte;
+        $this->visibility = $_visibility;
         $this->id_createur = $_id_createur;
     }
 
@@ -73,6 +74,10 @@ class Recette
 
     public function getDifficulte(){
         return $this->difficulte;
+    }
+
+    public function getVisibility(){
+        return $this->visibility;
     }
 
     public function getIdCreateur(){

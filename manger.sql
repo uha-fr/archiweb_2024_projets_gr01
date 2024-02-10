@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `manger`
 --
-CREATE DATABASE IF NOT EXISTS `manger` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+CREATE DATABASE IF NOT EXISTS `manger` DEFAULT CHARACTER SET utf8mb4;
 USE `manger`;
 
 -- --------------------------------------------------------
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `ingredient` (
   `calories` int NOT NULL,
   `url_image` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id_ingredient`) 
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `ingredient`
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `recette` (
   `id_createur` int NOT NULL,
   PRIMARY KEY (`id_recette`),
   KEY `id_createur` (`id_createur`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `recette`
@@ -90,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `recette_ingredient` (
   `quantite` int NOT NULL DEFAULT '1',
   PRIMARY KEY (`id_recette`,`id_ingredient`),
   KEY `id_ingredient` (`id_ingredient`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4  ;
 
 --
 -- Déchargement des données de la table `recette_ingredient`
@@ -111,7 +111,7 @@ CREATE TABLE IF NOT EXISTS `recette_ustensile` (
   `id_ustensile` int NOT NULL,
   PRIMARY KEY (`id_recette`,`id_ustensile`),
   KEY `id_ustensile` (`id_ustensile`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4  ;
 
 -- --------------------------------------------------------
 
@@ -125,7 +125,7 @@ CREATE TABLE IF NOT EXISTS `ustensile_equipement` (
   `nom` varchar(100) NOT NULL,
   `url_image` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id_ustensile`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4  ;
 
 -- --------------------------------------------------------
 
@@ -143,7 +143,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `taille` int NOT NULL,
   `type_utilisateur` enum('Standard','Premium','Nutritionniste','Admin') DEFAULT 'Standard',
   PRIMARY KEY (`id_utilisateur`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4  ;
 
 --
 -- Déchargement des données de la table `utilisateur`
@@ -165,7 +165,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur_ingredient` (
   `quantite` int NOT NULL,
   PRIMARY KEY (`id_utilisateur`,`id_ingredient`),
   KEY `id_ingredient` (`id_ingredient`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4  ;
 
 --
 -- Déchargement des données de la table `utilisateur_ingredient`
