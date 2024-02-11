@@ -32,10 +32,3 @@ function getConnection(){
     global $connection;
     return $connection;
 }
-
-
-
-
-
-
-?>
