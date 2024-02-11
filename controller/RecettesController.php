@@ -8,15 +8,13 @@ function getAllRecette()
   connect_bdd();
   $sql = "SELECT * FROM recette";
   $result = getConnection()->query($sql);
-  $i = 0;
   while ($row = $result->fetch_assoc()) {
         $recette = new Recette(
           $row['id_recette'],$row['nom'],$row['description'], $row['instruction'], 
           $row['difficulte'],$row['categorie'],$row['temps_preparation'],
           $row['temps_cuisson'],$row['calorie'],$row['url_image'],$row['visibility'],
           $row['id_createur']);
-        $recettes[$i] = $recette;
-        $i++;
+        $recettes[] = $recette;
   }
   close_bdd();
 

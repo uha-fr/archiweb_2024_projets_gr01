@@ -3,6 +3,13 @@
 require_once '../model/IngredientsModel.php';
 require_once 'DatabaseController.php';
 
+function createIngredient($nom = NULL, $categorie = NULL, $calories = NULL, $url_image = NULL)
+{
+  //add dans la base de donnée
+  global $ingredients;
+  $ingredients = getAllIngredient();
+}
+
 function getAllIngredient()
 {
 
