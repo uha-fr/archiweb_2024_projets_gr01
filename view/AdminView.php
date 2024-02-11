@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Admin</title>
-</head>
-<body>
-    <h1>Admin</h1>
-    </body>
-</html>
+<?php
+include("./HTMLHead.php");
+?>
+
+        <h1>Admin</h1>
+
+<?php
+include("./HTMLEnd.php");
+?>
