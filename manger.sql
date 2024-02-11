@@ -37,11 +37,10 @@ CREATE TABLE IF NOT EXISTS `ingredient` (
   `calories` int NOT NULL,
   `url_image` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id_ingredient`) 
-<<<<<<< HEAD
+
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
-=======
+
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 ;
->>>>>>> 3b5f06f5db7b5c16dd07dd25e5e8d4d4994c048d
 
 --
 -- Déchargement des données de la table `ingredient`
@@ -72,11 +71,9 @@ CREATE TABLE IF NOT EXISTS `recette` (
   `id_createur` int NOT NULL,
   PRIMARY KEY (`id_recette`),
   KEY `id_createur` (`id_createur`)
-<<<<<<< HEAD
+  
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
-=======
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 ;
->>>>>>> 3b5f06f5db7b5c16dd07dd25e5e8d4d4994c048d
 
 --
 -- Déchargement des données de la table `recette`
@@ -100,9 +97,8 @@ CREATE TABLE IF NOT EXISTS `recette_ingredient` (
   KEY `id_ingredient` (`id_ingredient`)
 <<<<<<< HEAD
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4  ;
-=======
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 ;
->>>>>>> 3b5f06f5db7b5c16dd07dd25e5e8d4d4994c048d
+
 
 --
 -- Déchargement des données de la table `recette_ingredient`
@@ -123,11 +119,8 @@ CREATE TABLE IF NOT EXISTS `recette_ustensile` (
   `id_ustensile` int NOT NULL,
   PRIMARY KEY (`id_recette`,`id_ustensile`),
   KEY `id_ustensile` (`id_ustensile`)
-<<<<<<< HEAD
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4  ;
-=======
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 ;
->>>>>>> 3b5f06f5db7b5c16dd07dd25e5e8d4d4994c048d
 
 -- --------------------------------------------------------
 
@@ -141,11 +134,8 @@ CREATE TABLE IF NOT EXISTS `ustensile_equipement` (
   `nom` varchar(100) NOT NULL,
   `url_image` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id_ustensile`)
-<<<<<<< HEAD
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4  ;
-=======
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 ;
->>>>>>> 3b5f06f5db7b5c16dd07dd25e5e8d4d4994c048d
 
 -- --------------------------------------------------------
 
@@ -189,11 +179,9 @@ CREATE TABLE IF NOT EXISTS `utilisateur_ingredient` (
   `quantite` int NOT NULL,
   PRIMARY KEY (`id_utilisateur`,`id_ingredient`),
   KEY `id_ingredient` (`id_ingredient`)
-<<<<<<< HEAD
+
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4  ;
-=======
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 ;
->>>>>>> 3b5f06f5db7b5c16dd07dd25e5e8d4d4994c048d
 
 --
 -- Déchargement des données de la table `utilisateur_ingredient`
