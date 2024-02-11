@@ -45,7 +45,7 @@
         <?php if(isset($ingredients)): ?>
             <div class="row p-4">
             <?php foreach ($ingredients as $ingredient): ?>
-                <div class="col-sm-2 mb-4">
+                <div class="col-lg-2 mb-4 col-6">
                         <div class="card magie" style="border-radius: 15px; border: 3px solid black !important;">
                             <div class="card-border">
                                     <img src="<?php echo $ingredient->getUrlImg(); ?>"  class="card-img-top" alt="<?php echo $ingredient->getNom(); ?>" style="border-top-left-radius: 12px; border-top-right-radius: 12px">
