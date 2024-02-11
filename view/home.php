@@ -23,6 +23,9 @@
                 <a class="nav-link" href="/archiweb_2024_projets_gr01/view/RecettesView.php">Recettes</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="/archiweb_2024_projets_gr01/view/UtilisateurView.php">Espace Utilisateur</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="/archiweb_2024_projets_gr01/view/AdminView.php">Admin</a>
             </li>
 
@@ -35,6 +38,8 @@
         </div>
         </nav>
 
+        <a href="loginView.php"><button>Connexion</button></a>
+        <a href="registerView.php"><button>Inscription</button></a>
 
         <!-- FOOTER -->
         <div class="container">
