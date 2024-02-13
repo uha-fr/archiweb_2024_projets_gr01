@@ -1,6 +1,5 @@
 <?php
 
-    session_start();
 
     require_once "../controller/process/header.php"; 
     function displayErrorMessage($errorCode) {

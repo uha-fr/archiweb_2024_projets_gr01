@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le : dim. 11 fév. 2024 à 22:08
--- Version du serveur : 10.4.28-MariaDB
--- Version de PHP : 8.2.4
+-- Hôte : 127.0.0.1:3306
+-- Généré le : mar. 13 fév. 2024 à 11:07
+-- Version du serveur : 8.0.31
+-- Version de PHP : 8.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,28 +29,30 @@ USE `manger`;
 -- Structure de la table `ingredient`
 --
 
-CREATE TABLE `ingredient` (
-  `id_ingredient` int(11) NOT NULL,
-  `nom` varchar(100) NOT NULL,
-  `categorie` varchar(50) NOT NULL,
-  `calories` int(11) NOT NULL,
-  `url_image` varchar(100) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+DROP TABLE IF EXISTS `ingredient`;
+CREATE TABLE IF NOT EXISTS `ingredient` (
+  `id_ingredient` int NOT NULL AUTO_INCREMENT,
+  `nom` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `categorie` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `calories` int NOT NULL,
+  `url_image` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id_ingredient`)
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `ingredient`
 --
 
 INSERT INTO `ingredient` (`id_ingredient`, `nom`, `categorie`, `calories`, `url_image`) VALUES
-(1, 'Tomate', 'Fruit', 25, 'src/img/ingredients/tomate.jpeg'),
-(2, 'Poivron', 'Légume', 12, 'src/img/ingredients/poivron.jpeg'),
-(3, 'Pomme', 'Fruit', 56, 'src/img/ingredients/pomme.jpeg'),
-(4, 'Banane', 'Fruit', 95, 'src/img/ingredients/banane.jpeg'),
-(5, 'Pomme de terre', 'Légume', 12, 'src/img/ingredients/pomme2terre.jpeg'),
-(7, 'Carotte', 'Légume', 58, 'src/img/ingredients/carotte.jpeg'),
-(8, 'Oeuf', '', 99, 'src/img/ingredients/oeuf.jpeg'),
-(9, 'Sucre', '', 5, 'src/img/ingredients/sucre.jpeg'),
-(10, 'Poireau', 'Légume', 12, 'src/img/ingredients/poireau.jpeg');
+(1, 'Tomate', 'Fruit', 25, '../assets/img/ingredients/tomate.jpeg'),
+(2, 'Poivron', 'Légume', 12, '../assets/img/ingredients/poivron.jpeg'),
+(3, 'Pomme', 'Fruit', 56, '../assets/img/ingredients/pomme.jpeg'),
+(4, 'Banane', 'Fruit', 95, '../assets/img/ingredients/banane.jpeg'),
+(5, 'Pomme de terre', 'Légume', 12, '../assets/img/ingredients/pomme2terre.jpeg'),
+(7, 'Carotte', 'Légume', 58, '../assets/img/ingredients/carotte.jpeg'),
+(8, 'Oeuf', '', 99, '../assets/img/ingredients/oeuf.jpeg'),
+(9, 'Sucre', '', 5, '../assets/img/ingredients/sucre.jpeg'),
+(10, 'Poireau', 'Légume', 12, '../assets/img/ingredients/poireau.jpeg');
 
 -- --------------------------------------------------------
 
@@ -58,27 +60,30 @@ INSERT INTO `ingredient` (`id_ingredient`, `nom`, `categorie`, `calories`, `url_
 -- Structure de la table `recette`
 --
 
-CREATE TABLE `recette` (
-  `id_recette` int(11) NOT NULL,
-  `nom` varchar(100) NOT NULL,
-  `description` text NOT NULL,
-  `instruction` text NOT NULL,
-  `difficulte` int(11) NOT NULL,
-  `categorie` varchar(50) NOT NULL,
-  `temps_preparation` int(11) NOT NULL,
-  `temps_cuisson` int(11) DEFAULT NULL,
-  `calorie` int(11) NOT NULL,
-  `url_image` varchar(100) DEFAULT NULL,
-  `visibility` enum('Public','Private') DEFAULT 'Private',
-  `id_createur` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+DROP TABLE IF EXISTS `recette`;
+CREATE TABLE IF NOT EXISTS `recette` (
+  `id_recette` int NOT NULL AUTO_INCREMENT,
+  `nom` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `description` text COLLATE utf8mb4_general_ci NOT NULL,
+  `instruction` text COLLATE utf8mb4_general_ci NOT NULL,
+  `difficulte` int NOT NULL,
+  `categorie` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `temps_preparation` int NOT NULL,
+  `temps_cuisson` int DEFAULT NULL,
+  `calorie` int NOT NULL,
+  `url_image` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `visibility` enum('Public','Private') COLLATE utf8mb4_general_ci DEFAULT 'Private',
+  `id_createur` int NOT NULL,
+  PRIMARY KEY (`id_recette`),
+  KEY `id_createur` (`id_createur`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `recette`
 --
 
 INSERT INTO `recette` (`id_recette`, `nom`, `description`, `instruction`, `difficulte`, `categorie`, `temps_preparation`, `temps_cuisson`, `calorie`, `url_image`, `visibility`, `id_createur`) VALUES
-(1, 'Tomate automate', 'Tomate aux tomates', '1.Tomate\r\n2.Automate\r\n3.Aux tomates ?', 1, 'Plat', 1, NULL, 25, 'src/img/recettes/automate.jpeg', 'Private', 1);
+(1, 'Tomate automate', 'Tomate aux tomates', '1.Tomate\r\n2.Automate\r\n3.Aux tomates ?', 1, 'Plat', 1, NULL, 25, '../assets/img/recettes/automate.jpeg', 'Private', 1);
 
 -- --------------------------------------------------------
 
@@ -86,10 +91,13 @@ INSERT INTO `recette` (`id_recette`, `nom`, `description`, `instruction`, `diffi
 -- Structure de la table `recette_ingredient`
 --
 
-CREATE TABLE `recette_ingredient` (
-  `id_recette` int(11) NOT NULL,
-  `id_ingredient` int(11) NOT NULL,
-  `quantite` int(11) NOT NULL DEFAULT 1
+DROP TABLE IF EXISTS `recette_ingredient`;
+CREATE TABLE IF NOT EXISTS `recette_ingredient` (
+  `id_recette` int NOT NULL,
+  `id_ingredient` int NOT NULL,
+  `quantite` int NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id_recette`,`id_ingredient`),
+  KEY `id_ingredient` (`id_ingredient`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -105,9 +113,12 @@ INSERT INTO `recette_ingredient` (`id_recette`, `id_ingredient`, `quantite`) VAL
 -- Structure de la table `recette_ustensile`
 --
 
-CREATE TABLE `recette_ustensile` (
-  `id_recette` int(11) NOT NULL,
-  `id_ustensile` int(11) NOT NULL
+DROP TABLE IF EXISTS `recette_ustensile`;
+CREATE TABLE IF NOT EXISTS `recette_ustensile` (
+  `id_recette` int NOT NULL,
+  `id_ustensile` int NOT NULL,
+  PRIMARY KEY (`id_recette`,`id_ustensile`),
+  KEY `id_ustensile` (`id_ustensile`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -116,10 +127,12 @@ CREATE TABLE `recette_ustensile` (
 -- Structure de la table `ustensile_equipement`
 --
 
-CREATE TABLE `ustensile_equipement` (
-  `id_ustensile` int(11) NOT NULL,
-  `nom` varchar(100) NOT NULL,
-  `url_image` varchar(100) DEFAULT NULL
+DROP TABLE IF EXISTS `ustensile_equipement`;
+CREATE TABLE IF NOT EXISTS `ustensile_equipement` (
+  `id_ustensile` int NOT NULL AUTO_INCREMENT,
+  `nom` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `url_image` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id_ustensile`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -128,15 +141,17 @@ CREATE TABLE `ustensile_equipement` (
 -- Structure de la table `utilisateur`
 --
 
-CREATE TABLE `utilisateur` (
-  `id_utilisateur` int(11) NOT NULL,
-  `pseudo` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `mot_de_passe` varchar(100) NOT NULL,
-  `poids` int(11) NOT NULL,
-  `taille` int(11) NOT NULL,
-  `type_utilisateur` enum('Standard','Premium','Nutritionniste','Admin') DEFAULT 'Standard'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+DROP TABLE IF EXISTS `utilisateur`;
+CREATE TABLE IF NOT EXISTS `utilisateur` (
+  `id_utilisateur` int NOT NULL AUTO_INCREMENT,
+  `pseudo` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `mot_de_passe` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `poids` int NOT NULL,
+  `taille` int NOT NULL,
+  `type_utilisateur` enum('Standard','Premium','Nutritionniste','Admin') COLLATE utf8mb4_general_ci DEFAULT 'Standard',
+  PRIMARY KEY (`id_utilisateur`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `utilisateur`
@@ -152,10 +167,13 @@ INSERT INTO `utilisateur` (`id_utilisateur`, `pseudo`, `email`, `mot_de_passe`, 
 -- Structure de la table `utilisateur_ingredient`
 --
 
-CREATE TABLE `utilisateur_ingredient` (
-  `id_utilisateur` int(11) NOT NULL,
-  `id_ingredient` int(11) NOT NULL,
-  `quantite` int(11) NOT NULL
+DROP TABLE IF EXISTS `utilisateur_ingredient`;
+CREATE TABLE IF NOT EXISTS `utilisateur_ingredient` (
+  `id_utilisateur` int NOT NULL,
+  `id_ingredient` int NOT NULL,
+  `quantite` int NOT NULL,
+  PRIMARY KEY (`id_utilisateur`,`id_ingredient`),
+  KEY `id_ingredient` (`id_ingredient`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -164,84 +182,6 @@ CREATE TABLE `utilisateur_ingredient` (
 
 INSERT INTO `utilisateur_ingredient` (`id_utilisateur`, `id_ingredient`, `quantite`) VALUES
 (1, 1, 2);
-
---
--- Index pour les tables déchargées
---
-
---
--- Index pour la table `ingredient`
---
-ALTER TABLE `ingredient`
-  ADD PRIMARY KEY (`id_ingredient`);
-
---
--- Index pour la table `recette`
---
-ALTER TABLE `recette`
-  ADD PRIMARY KEY (`id_recette`),
-  ADD KEY `id_createur` (`id_createur`);
-
---
--- Index pour la table `recette_ingredient`
---
-ALTER TABLE `recette_ingredient`
-  ADD PRIMARY KEY (`id_recette`,`id_ingredient`),
-  ADD KEY `id_ingredient` (`id_ingredient`);
-
---
--- Index pour la table `recette_ustensile`
---
-ALTER TABLE `recette_ustensile`
-  ADD PRIMARY KEY (`id_recette`,`id_ustensile`),
-  ADD KEY `id_ustensile` (`id_ustensile`);
-
---
--- Index pour la table `ustensile_equipement`
---
-ALTER TABLE `ustensile_equipement`
-  ADD PRIMARY KEY (`id_ustensile`);
-
---
--- Index pour la table `utilisateur`
---
-ALTER TABLE `utilisateur`
-  ADD PRIMARY KEY (`id_utilisateur`);
-
---
--- Index pour la table `utilisateur_ingredient`
---
-ALTER TABLE `utilisateur_ingredient`
-  ADD PRIMARY KEY (`id_utilisateur`,`id_ingredient`),
-  ADD KEY `id_ingredient` (`id_ingredient`);
-
---
--- AUTO_INCREMENT pour les tables déchargées
---
-
---
--- AUTO_INCREMENT pour la table `ingredient`
---
-ALTER TABLE `ingredient`
-  MODIFY `id_ingredient` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT pour la table `recette`
---
-ALTER TABLE `recette`
-  MODIFY `id_recette` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT pour la table `ustensile_equipement`
---
-ALTER TABLE `ustensile_equipement`
-  MODIFY `id_ustensile` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT pour la table `utilisateur`
---
-ALTER TABLE `utilisateur`
-  MODIFY `id_utilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
