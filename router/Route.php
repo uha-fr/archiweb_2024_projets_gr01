@@ -27,7 +27,6 @@ class Route {
 
         $callback = call_user_func_array($this->callable, $this->matches);
         $params = explode('/', $callback);
-        var_dump($params);
         
         if(file_exists(CONTROLLERS.DS.$params[0].'Controller.php')){
             require CONTROLLERS.DS.$params[0].'Controller.php';

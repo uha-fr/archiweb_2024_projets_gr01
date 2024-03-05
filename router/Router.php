@@ -28,6 +28,7 @@ class Router {
                 return $route->call();
             }
         }
-        return 'Page not found';
+        header('Location: /');
+        exit();
     }
 }

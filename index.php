@@ -9,7 +9,7 @@ define('ROUTER',ROOT.DS.'router');
 
 require ROUTER.DS.'Router.php';
 
-$router = new Router(str_replace('/archiweb_2024_projets_gr01','',$_SERVER['REQUEST_URI']));
+$router = new Router($_SERVER['REQUEST_URI']);
 
 $router->get('/', function(){
     return 'Home';
@@ -37,6 +37,18 @@ $router->get('/ingredients/:id', function($id){
 
 $router->post('/ingredients/:id', function($id){
     return 'Ingredients/' . $id;
+});
+
+$router->get('/login', function(){
+    return 'Login';
+});
+
+$router->get('/register', function(){
+    return 'Register';
+});
+
+$router->get('/user', function(){
+    return 'Utilisateur';
 });
 
 echo $router->resolve();
