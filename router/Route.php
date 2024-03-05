@@ -12,7 +12,7 @@ class Route {
     }
 
     public function match($url){
-        $url = str_replace(dirname($_SERVER['SCRIPT_NAME']), '', $url);
+        $url = str_replace(dirname($_SERVER['SCRIPT_NAME']),"",$url);
         $url = trim($url, '/');
         $path = preg_replace('#:([\w]+)#', '([^/]+)', $this->path);
         $regex = "#^$path$#i";
@@ -21,6 +21,7 @@ class Route {
         }
         array_shift($matches);
         $this->matches = $matches;
+       
         return true;
     }
 
@@ -28,6 +29,7 @@ class Route {
 
         $callback = call_user_func_array($this->callable, $this->matches);
         $params = explode('/', $callback);
+        
         
         if(file_exists(CONTROLLERS.DS.$params[0].'Controller.php')){
             require CONTROLLERS.DS.$params[0].'Controller.php';

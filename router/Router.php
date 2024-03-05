@@ -28,7 +28,6 @@ class Router {
                 return $route->call();
             }
         }
-        header('Location: /');
         exit();
     }
 }
