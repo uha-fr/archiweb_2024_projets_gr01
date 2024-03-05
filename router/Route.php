@@ -12,6 +12,7 @@ class Route {
     }
 
     public function match($url){
+        $url = str_replace(dirname($_SERVER['SCRIPT_NAME']), '', $url);
         $url = trim($url, '/');
         $path = preg_replace('#:([\w]+)#', '([^/]+)', $this->path);
         $regex = "#^$path$#i";
