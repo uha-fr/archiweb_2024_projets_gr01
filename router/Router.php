@@ -28,7 +28,7 @@ class Router {
                 return $route->call();
             }
         }
-        header('Location: /');
+        header('Location: '.WEBROOT);
         exit();
     }
 }
