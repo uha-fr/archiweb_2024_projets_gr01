@@ -13,24 +13,24 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3 ">
             <div class="container mx-1">
-                <a class="navbar-brand mr-5" href="/">Manger</a>
+                <a class="navbar-brand mr-5" href="<?php echo WEBROOT."/";?>">Manger</a>
                 <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse ml-3" id="navbarNav">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link mx-2" href="/">Accueil</a>
+                            <a class="nav-link mx-2" href="<?php echo WEBROOT."/";?>">Accueil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mx-2" href="/recettes">Recettes</a>
+                            <a class="nav-link mx-2" href="<?php echo WEBROOT."/recettes";?>">Recettes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mx-2" href="/ingredients">Ingrédients</a>
+                            <a class="nav-link mx-2" href="<?php echo WEBROOT."/ingredients";?>">Ingrédients</a>
                         </li>
                         <!--
                         <li class="nav-item">
-                            <a class="nav-link mx-2" href="/admin">Admin</a>
+                            <a class="nav-link mx-2" href="<?php //echo WEBROOT."/admin";?>">Admin</a>
                         </li> 
                         -->
                         <li>
@@ -46,7 +46,7 @@
                             if(isset($_SESSION['email'])) {
                                 echo '
                                         <li class="nav-item">
-                                            <a class="nav-link mx-4" href="/user">
+                                            <a class="nav-link mx-4" href="'.WEBROOT.'/user">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                                                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
                                                     <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
@@ -55,8 +55,8 @@
                                         </li>';
                             } else {
                                 
-                                echo '<li class="nav-item justify-content-end"><a class="nav-link mx-2" href="/login">Log In</a></li>';
-                                echo '<li class="nav-item justify-content-end"><a class="nav-link mx-2" href="/register">Sign Up</a></li>';
+                                echo '<li class="nav-item justify-content-end"><a class="nav-link mx-2" href="'.WEBROOT.'/login">Log In</a></li>';
+                                echo '<li class="nav-item justify-content-end"><a class="nav-link mx-2" href="'.WEBROOT.'/register">Sign Up</a></li>';
                             }
                         
                         ?>
@@ -74,11 +74,11 @@
             </div>
             <div class="col-md-6 text-right"> <!-- Colonne pour la liste -->
                 <ul class="nav">
-                    <li class="nav-item"><a href="/" class="nav-link px-2 text-body-secondary">Accueil</a></li>
-                    <li class="nav-item"><a href="/recettes" class="nav-link px-2 text-body-secondary">Recettes</a></li>
-                    <li class="nav-item"><a href="/ingredients" class="nav-link px-2 text-body-secondary">Ingrédients</a></li>
-                    <li class="nav-item"><a href="/admin" class="nav-link px-2 text-body-secondary">Admin</a></li>
-                    <li class="nav-item"><a href="/user" class="nav-link px-2 text-body-secondary">Déconnexion</a></li>
+                    <li class="nav-item"><a href="<?php echo WEBROOT."/"?>" class="nav-link px-2 text-body-secondary">Accueil</a></li>
+                    <li class="nav-item"><a href="<?php echo WEBROOT."/recettes"?>" class="nav-link px-2 text-body-secondary">Recettes</a></li>
+                    <li class="nav-item"><a href="<?php echo WEBROOT."/ingredients"?>" class="nav-link px-2 text-body-secondary">Ingrédients</a></li>
+                    <li class="nav-item"><a href="<?php echo WEBROOT."/admin"?>" class="nav-link px-2 text-body-secondary">Admin</a></li>
+                    <li class="nav-item"><a href="<?php echo WEBROOT."/user"?>" class="nav-link px-2 text-body-secondary">Déconnexion</a></li>
                 </ul>
             </div>
         </div>
