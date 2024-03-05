@@ -7,7 +7,6 @@ define('MODELS',ROOT.DS.'models');
 define('VIEWS',ROOT.DS.'views');
 define('ROUTER',ROOT.DS.'router');
 define('WEBROOT', 'http://'.$_SERVER['SERVER_NAME'].(($_SERVER['SERVER_PORT'] == '80')?'':':'.$_SERVER['SERVER_PORT']).((dirname($_SERVER['SCRIPT_NAME']) == DS)?'':dirname($_SERVER['SCRIPT_NAME'])) );
-echo WEBROOT;
 require ROUTER.DS.'Router.php';
 
 $router = new Router($_SERVER['REQUEST_URI']);
