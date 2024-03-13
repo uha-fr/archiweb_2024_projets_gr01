@@ -93,11 +93,9 @@
 
     <script>
         // Récupère le chemin de la page actuelle
-        var path = window.location.href;
-        
+        var path = window.location.pathname;
         // Récupère tous les liens de la barre de navigation
         var links = document.querySelectorAll('.navbar-nav a.nav-link');
-        
 
         // Parcourt tous les liens
         links.forEach(function(link) {
