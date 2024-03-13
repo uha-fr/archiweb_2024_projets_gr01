@@ -2,7 +2,7 @@
 
 session_start();
 
-require_once "./header.php"; 
+require_once "header.php"; 
 
 define('SUCCESS', 'success');
 define('ALREADY_EXISTS', 'already');
@@ -23,7 +23,7 @@ if(isset($_POST['pseudo'], $_POST['email'], $_POST['password'], $_POST['password
     $password2 = sanitizeInput($_POST['password2']);
 
     if(!passwordsMatch($password, $password2)) {
-        header('Location: ../../view/RegisterView.php?regcode='.PASSWORD_MISMATCH);
+        header('Location: ../../index.php?Main=register&regcode='.PASSWORD_MISMATCH);
         exit();
     }
 
@@ -48,10 +48,10 @@ if(isset($_POST['pseudo'], $_POST['email'], $_POST['password'], $_POST['password
             'email' => $email,
             'mot_de_passe' => $passwordHash
         ));
-        header('Location: ../../view/RegisterView.php?regcode='.SUCCESS);
+        header('Location: ../../index.php?Main=register&regcode='.SUCCESS);
         exit();
     } else {
-        header('Location: ../../view/RegisterView.php?regcode='.ALREADY_EXISTS);
+        header('Location: ../../index.php?Main=register&regcode='.ALREADY_EXISTS);
         exit();
     }
 }

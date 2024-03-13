@@ -1,5 +1,7 @@
 <?php
 
+ session_start();
+
 // Header.php contient les fonctions réutilisés pour les processus de connexion, inscription et modification d'informations dans la base de données. 
 function connectDB() {
     try {
@@ -34,7 +36,7 @@ function disconnect(){
 
     if(isset($_POST['logout'])) {
         disconnect();
-        header('Location: ../view/LoginView.php?logcode=disconnect');
+        header('Location: index.php');
         exit() ; 
     }
 

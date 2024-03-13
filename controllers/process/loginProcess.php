@@ -1,7 +1,7 @@
 <?php
     session_start(); 
 
-    require_once "./header.php"; 
+    require_once "header.php"; 
 
     // Fonction de validation du formulaire de connexion
     function validateLoginForm($bdd) {
@@ -17,16 +17,17 @@
                         'pseudo' => $data['pseudo']
                     ];*/
                 
-
+                
                 setSession($data); 
                 
                 // Création du cookie
                     //$jsonArray = json_encode($loggedUser);
                     // setCookie("loggedCookie", $jsonArray, (time() + 5*60)); 
-                header('Location: ../../view/UtilisateurView.php');
+                header('Location: ../../index.php?Main=user');
                 exit(); 
             } else {
-                header('Location: ../../view/LoginView.php?logcode=failure');
+                header('Location: ../../index.php?Main=login&logcode=failure');
+                //header('Location: ../../views/LoginView.php?logcode=failure');
                 exit(); 
             }   
         }

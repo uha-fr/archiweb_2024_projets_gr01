@@ -1,7 +1,7 @@
 <?php
     session_start(); 
 
-    require_once "./header.php"; 
+    require_once "header.php"; 
 
     // Constantes pour les codes d'erreur
     define('SUCCESS', 'success');
@@ -24,11 +24,11 @@
             ));
             $_SESSION['taille'] = $taille ; 
             $_SESSION['poids'] = $poids ; 
-            header('Location: ../../view/UtilisateurView.php?comcode='.SUCCESS);
+            header('Location: ../../views/UtilisateurView.php?comcode='.SUCCESS);
             exit();
         }
         else{
-            header('Location: ../../view/UtilisateurView.php?comcode='.OUTDATA);
+            header('Location: ../../views/UtilisateurView.php?comcode='.OUTDATA);
             exit();
         }
     }

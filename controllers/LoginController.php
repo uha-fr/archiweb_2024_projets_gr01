@@ -1,7 +1,7 @@
 <?php
 
-
-    require_once "../controller/process/header.php"; 
+    require_once CONTROLLERS.DS."process".DS."header.php";
+    //require_once "../controllers/process/header.php"; 
     function displayErrorMessage($errorCode) {
         switch($errorCode){
             case 'failure':
@@ -19,3 +19,6 @@
         $errorMessage = htmlspecialchars($_GET['logcode']);
         displayErrorMessage($errorMessage);
     }
+
+    require_once VIEWS.DS."LoginView.php";
+    //require_once "../views/LoginView.php";

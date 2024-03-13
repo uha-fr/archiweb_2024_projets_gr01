@@ -19,8 +19,15 @@ class Router
                 case "admin":
                     $this->admin();
                     break;
-
-
+                case "login":
+                    $this->login();
+                    break;
+                case "register":
+                    $this->register();
+                    break;
+                case "user":
+                    $this->user();
+                    break;
                 default:
                     $this->home();
                     break;
@@ -148,36 +155,24 @@ class Router
         }
     }
 
-  /*  private function login()
+    private function login()
     {
         require CONTROLLERS.DS.'LoginController.php';
-        $controller = new LoginController();
-        if(isset($_GET["Action"]))
-        {
-            switch($_GET["Action"]){
-                case "list":
-                    $controller->list();
-                    break;
+    }
 
-                case "add":
-                    $controller->add();
-                    break;
-                
-                default:
-                    $controller->list();
-                    break;
-            }
-        }
+    private function register()
+    {
+        require CONTROLLERS.DS.'RegisterController.php';
+    }
 
-        else
-        {
-            $controller->list();
-        }
+    private function user()
+    {
+        require CONTROLLERS.DS.'UtilisateurController.php';
     }
 
     //register et utilisateur
     
-*/
+
 
 
 }

@@ -1,10 +1,10 @@
 <?php
 
-function displayErrorMessage($errorCode) {
+function displayErrorMessage_($errorCode) {
         switch($errorCode){
             case 'success':
                 echo "<h1>Successful registration</h1>";?>
-                <a href="home.php"><button> Accéder à l'accueil </button></a>
+                <a href="index.php"><button> Accéder à l'accueil </button></a>
                 <?php
                 exit(); 
             case 'already':
@@ -20,5 +20,7 @@ function displayErrorMessage($errorCode) {
     }
     if(isset($_GET['regcode'])){
         $err = htmlspecialchars($_GET['regcode']);
-        displayErrorMessage($err);
+        displayErrorMessage_($err);
     }
+
+    require_once VIEWS.DS."RegisterView.php"; 

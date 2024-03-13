@@ -1,9 +1,9 @@
 <?php
 
 
-    require_once "../controller/process/header.php"; 
+    require_once "controllers/process/header.php"; 
 
-    function displayErrorMessage($errorCode) {
+    function displayErrorMessage_1($errorCode) {
         switch($errorCode){
             case 'success':
                 echo "<h1> Les modifications ont bien été prise en compte. </h1>";
@@ -21,3 +21,5 @@
                 break;
         }
     }
+
+    require_once VIEWS.DS."UtilisateurView.php";

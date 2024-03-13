@@ -1,17 +1,18 @@
 <!-- view/UtilisateurView.php -->
 <?php
-include("./HTMLHead.php");
+/*include("./HTMLHead.php");*/
 ?>
 
 <h1> UtilisateurView.php </h1>
 
 
 <?php
-    require_once "../controller/UtilisateurController.php"; 
+    require_once "controllers/UtilisateurController.php"; 
 ?>	
 
 <?php
-if(isset($_SESSION['email'])): ?> 
+if(isset($_SESSION['email'])): 
+?> 
 <div>
     Bonjour <?php echo $_SESSION['pseudo']; ?> et bienvenue sur le site !
 
@@ -32,7 +33,7 @@ if(isset($_GET['comcode'])){
 if(isset($_SESSION['taille'], $_SESSION['poids']) && $_SESSION['taille'] == 0 && $_SESSION['poids'] == 0){
     if(isset($_POST['complete'])) { // Ouverture de la balise PHP avec la condition if
     ?>
-        <form action="../controller/process/completeProcess.php" method="post">
+        <form action="../controllers/process/completeProcess.php" method="post">
             <br> <label for="taille"> Taille (cm) </label>
             <input type="text" name="taille" required="required" autocomplete="off"> 
             <br> <label for="poids"> Poids (kg) </label>
@@ -63,10 +64,10 @@ if(isset($_SESSION['taille'], $_SESSION['poids']) && $_SESSION['taille'] == 0 &&
 
     
 <?php else: 
-       header('location: LoginView.php') ; 
+       header('location: index.php?Main=login') ; 
        ?>
 <?php endif; ?>
 
 <?php
-include("./HTMLEnd.php");
+/*include("./HTMLEnd.php");*/
 ?>

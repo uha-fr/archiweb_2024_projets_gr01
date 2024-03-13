@@ -1,14 +1,14 @@
 <!-- view/RegisterView.php -->
 <?php
-include("./HTMLHead.php");
+/*include("./HTMLHead.php");*/
 ?>
 <h1> RegisterView.php </h1>
 
 <?php
-    require_once "../controller/RegisterController.php"; 
+    require_once "controllers/RegisterController.php"; 
 ?>	
 
-<form action="../controller/process/registerProcess.php" method="post">
+<form action="controllers/process/registerProcess.php" method="post">
     <br> <label for="pseudo"> Pseudonyme </label>
         <input type="text" name="pseudo" required="required" autocomplete="off">
     <br> <label for="email"> Email </label>
@@ -24,5 +24,5 @@ include("./HTMLHead.php");
 </html>
 
 <?php
-include("./HTMLEnd.php");
+/*include("./HTMLEnd.php");*/
 ?>

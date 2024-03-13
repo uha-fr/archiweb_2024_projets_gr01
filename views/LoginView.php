@@ -1,16 +1,16 @@
 <!-- view/LoginView.php -->
 <?php
-include("./HTMLHead.php"); 
+/*include("HTMLHead.php");*/ 
 ?>
 <h1> LoginView.php </h1>
 
 <?php
-    require_once "../controller/LoginController.php";
+    require_once "controllers/LoginController.php";
     
 ?>	
 
 <?php if(!isset($_SESSION['mail'])): ?>
-    <form action="../controller/process/loginProcess.php" method="post">
+    <form action="controllers/process/loginProcess.php" method="post">
         <h2>Connexion</h2> 
         <label for="email">Email</label>
         <input type="email" id="email" name="email" placeholder="you@example.com">
@@ -29,9 +29,9 @@ include("./HTMLHead.php");
     </form>-->
 
 <?php else: 
-    header('Location: home.php');?>
+    header('Location: index.php');?>
 <?php endif; ?>
 
-<?php
-include("./HTMLEnd.php");
-?>
+<?php /*
+include("HTMLEnd.php");
+*/?>
