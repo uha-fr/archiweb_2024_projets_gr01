@@ -28,7 +28,9 @@
                         <h5 class="card-title"><?php echo $ingredient->getNom(); ?></h5>
                         <p class="card-text"><?php echo $ingredient->getCategorie(); ?></p>
                         <p class="card-text"><?php echo $ingredient->getCalorie(); ?> cal</p>
-                        <a href="../ingredients/<?php echo $ingredient->getId()?>" class="btn btn-primary">Voir ingrédient</a>
+                       <!-- <a href="../ingredients/<?php /* echo $ingredient->getId()*/?>" class="btn btn-primary">Voir ingrédient</a> -->
+                        <a href="index.php?Main=ingredients&Action=showone&id=<?php echo $ingredient->getId(); ?>" class="btn btn-primary">Voir ingrédient</a>
+
                     </div>
                 </div>
         </div>

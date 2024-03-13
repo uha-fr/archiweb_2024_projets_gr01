@@ -13,20 +13,20 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3 ">
             <div class="container mx-1">
-                <a class="navbar-brand mr-5" href="<?php echo WEBROOT."/";?>">Manger</a>
+                <a class="navbar-brand mr-5" href="index.php">Manger</a>
                 <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse ml-3" id="navbarNav">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link mx-2" href="<?php echo WEBROOT."/";?>">Accueil</a>
+                            <a class="nav-link mx-2" href="index.php">Accueil</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mx-2" href="<?php echo WEBROOT."/recettes";?>">Recettes</a>
+                            <a class="nav-link mx-2" href="index.php?Main=recettes">Recettes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mx-2" href="<?php echo WEBROOT."/ingredients";?>">Ingrédients</a>
+                            <a class="nav-link mx-2" href="index.php?Main=ingredients">Ingrédients</a>
                         </li>
                         <!--
                         <li class="nav-item">
@@ -74,11 +74,11 @@
             </div>
             <div class="col-md-6 text-right"> <!-- Colonne pour la liste -->
                 <ul class="nav">
-                    <li class="nav-item"><a href="<?php echo WEBROOT."/"?>" class="nav-link px-2 text-body-secondary">Accueil</a></li>
-                    <li class="nav-item"><a href="<?php echo WEBROOT."/recettes"?>" class="nav-link px-2 text-body-secondary">Recettes</a></li>
-                    <li class="nav-item"><a href="<?php echo WEBROOT."/ingredients"?>" class="nav-link px-2 text-body-secondary">Ingrédients</a></li>
-                    <li class="nav-item"><a href="<?php echo WEBROOT."/admin"?>" class="nav-link px-2 text-body-secondary">Admin</a></li>
-                    <li class="nav-item"><a href="<?php echo WEBROOT."/user"?>" class="nav-link px-2 text-body-secondary">Déconnexion</a></li>
+                    <li class="nav-item"><a href="index.php" class="nav-link px-2 text-body-secondary">Accueil</a></li>
+                    <li class="nav-item"><a href="index.php?Main=recettes" class="nav-link px-2 text-body-secondary">Recettes</a></li>
+                    <li class="nav-item"><a href="index.php?Main=ingredients" class="nav-link px-2 text-body-secondary">Ingrédients</a></li>
+                    <li class="nav-item"><a href="index.php?Main=admin" class="nav-link px-2 text-body-secondary">Admin</a></li>
+                    <li class="nav-item"><a href="index.php?Main=user" class="nav-link px-2 text-body-secondary">Déconnexion</a></li>
                 </ul>
             </div>
         </div>
@@ -91,22 +91,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <script>
-        // Récupère le chemin de la page actuelle
-        var path = window.location.href;
-        
-        // Récupère tous les liens de la barre de navigation
-        var links = document.querySelectorAll('.navbar-nav a.nav-link');
-        
-
-        // Parcourt tous les liens
-        links.forEach(function(link) {
-            // Si le chemin de la page actuelle correspond au href du lien
-            if (link.getAttribute('href') === path) {
-            // Ajoute la classe 'active' au lien
-            link.classList.add('active');
-            }
-        });
-    </script>
+    
 </body>
 </html>

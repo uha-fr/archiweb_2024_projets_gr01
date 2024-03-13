@@ -1,34 +1,183 @@
 <?php
 
-require ROUTER.DS.'Route.php';
+class Router
+{
+    function manageRequest(){
+        if(isset($_GET["Main"]))
+        {
+            switch($_GET["Main"])
+            {
+                case "home":
+                    $this->home();
+                    break;
+                case "ingredients":
+                    $this->ingredients();
+                    break;
+                case "recettes":
+                    $this->recettes();
+                    break;
+                case "admin":
+                    $this->admin();
+                    break;
 
-class Router {
 
-    private $url;
-    private $routes = [];
-
-    public function __construct($url){
-        $this->url = $url;
-    }
-
-    public function get($path, $callable){
-        $route = new Route($path, $callable); 
-        $this->routes['GET'][] = $route;
-    }
-
-    public function post($path, $callable){
-        $route = new Route($path, $callable); 
-        $this->routes['POST'][] = $route;
-    }
-    
-    public function resolve(){
-        $method = $_SERVER['REQUEST_METHOD'];
-        foreach($this->routes[$method] as $route){
-            if($route->match($this->url)){
-                return $route->call();
+                default:
+                    $this->home();
+                    break;
             }
         }
-        header('Location: '.WEBROOT);
-        exit();
+
+        else
+        {
+            $this->home();
+        }
+        
     }
+
+    private function home()
+    {
+        require CONTROLLERS.DS.'HomeController.php';
+        $controller = new HomeController();
+        if(isset($_GET["Action"]))
+        {
+            switch($_GET["Action"])
+            {
+                case "show":
+                    $controller->show();
+                    break;
+
+                
+                default:
+                    $controller->show();
+                    break;
+            }
+        }
+
+        else
+        {
+            $controller->show();
+        }
+
+    }
+
+    private function ingredients()
+    {
+        require CONTROLLERS.DS.'IngredientsController.php';
+        $controller = new IngredientsController();
+        if(isset($_GET["Action"]))
+        {
+            switch(isset($_GET["Action"]))
+            {
+                
+                case "showone":
+                    //trigger_error("Oops!", E_USER_ERROR);
+                    if(isset($_GET["id"]))
+                    {
+                        $id_ = $_GET["id"];
+                        $controller->showone($id_);
+                    }               
+                    break;
+                    
+                case "show":
+                    //trigger_error("Oops!", E_USER_ERROR);
+                    $controller->show();
+                    break;
+                
+                default:
+                    $controller->show();
+                    break;
+            }
+        }
+
+        else
+        {
+            $controller->show();
+        }
+    }
+
+    private function recettes()
+    {
+        require CONTROLLERS.DS.'RecettesController.php';
+        $controller = new RecettesController();
+        if(isset($_GET["Action"]))
+        {
+            switch($_GET["Action"]){
+                case "showone":
+                    if(isset($_GET["id"]))
+                    {
+                        $id_ = $_GET["id"];
+                        $controller->showone($id_);
+                    }      
+                    
+                case "show":
+                    $controller->show();
+                    break;
+ 
+                default:
+                    $controller->show();
+                    break;
+            }
+        }
+
+        else
+        {
+            $controller->show();
+        }
+    }
+
+    private function admin()
+    {
+        require CONTROLLERS.DS.'AdminController.php';
+        $controller = new AdminController();
+        if(isset($_GET["Action"]))
+        {
+            switch($_GET["Action"]){
+                case "show":
+                    $controller->show();
+                    break;
+                
+                default:
+                    $controller->show();
+                    break;
+            }
+        }
+
+        else
+        {
+            $controller->show();
+        }
+    }
+
+  /*  private function login()
+    {
+        require CONTROLLERS.DS.'LoginController.php';
+        $controller = new LoginController();
+        if(isset($_GET["Action"]))
+        {
+            switch($_GET["Action"]){
+                case "list":
+                    $controller->list();
+                    break;
+
+                case "add":
+                    $controller->add();
+                    break;
+                
+                default:
+                    $controller->list();
+                    break;
+            }
+        }
+
+        else
+        {
+            $controller->list();
+        }
+    }
+
+    //register et utilisateur
+    
+*/
+
+
 }

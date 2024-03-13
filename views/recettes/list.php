@@ -35,7 +35,7 @@
                         <p class="card-text"><?php echo $recette->getCalorie(); ?> cal </p>
                         <p class="card-text"><?php echo $recette->getVisibility(); ?> </p>
                         <p class="card-text"><?php echo $recette->getIdCreateur(); ?> </p>
-                        <a href="../recettes/<?php echo $recette->getId()?>" class="btn btn-primary">Voir recette</a>
+                        <a href="index.php?Main=recettes&Action=showone&id=<?php echo $recette->getId(); ?>" class="btn btn-primary">Voir la recette</a>
                     </div>
     </div>
                 </div>
