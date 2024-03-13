@@ -1,21 +1,9 @@
 <?php
-//include("./HTMLHead.php");
-
-class AdminView
-{
-    public function pageAdmin(){
-        ob_start();
-        $ressource='admin';
-        $methode='pageAdmin';
-        require VIEWS.DS.'template.php';
-        $html = ob_get_clean();
-        //$html="<html><body>Ma liste</body></html>";
-        return $html;
-    }
-}
+include("./HTMLHead.php");
 ?>
 
+        <h1>Admin</h1>
 
 <?php
-//include("./HTMLEnd.php");
+include("./HTMLEnd.php");
 ?>
