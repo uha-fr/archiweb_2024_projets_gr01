@@ -10,7 +10,7 @@ define('WEBROOT', 'http://'.$_SERVER['SERVER_NAME'].(($_SERVER['SERVER_PORT'] ==
 echo WEBROOT;
 require ROUTER.DS.'Router.php';
 
-$router = new Router($_SERVER['REQUEST_URI']);
+$router = new Router(str_replace("archiweb_2024_projets_gr01/","",$_SERVER['REQUEST_URI']));
 
 $router->get('/', function(){
     return 'Home';
