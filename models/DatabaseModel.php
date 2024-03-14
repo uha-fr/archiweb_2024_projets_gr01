@@ -32,4 +32,8 @@ class DatabaseController
       return $this->connection;
   }
 
+  public function prepare($query) {
+    return $this->connection->prepare($query);
+  }
+
 }

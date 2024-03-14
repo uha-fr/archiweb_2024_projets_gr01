@@ -1,37 +1,13 @@
-<!-- view/LoginView.php -->
 <?php
-/*include("HTMLHead.php");*/ 
-?>
-<h1> LoginView.php </h1>
 
-<?php
-    require_once "controllers/LoginController.php";
-    
-?>	
+class LoginView {
+    public function display() {
+        ob_start();
+        $ressource = 'login';
+        $methode = 'form';
+        require VIEWS.DS.'template.php'; // Préparer une autre template pour login/register !
+        $html = ob_get_clean();
 
-<?php if(!isset($_SESSION['mail'])): ?>
-    <form action="controllers/process/loginProcess.php" method="post">
-        <h2>Connexion</h2> 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="you@example.com">
-        <label for="password">Mot de passe</label>
-        <input type="password" id="password" name="password">
-        <button type="submit">Envoyer</button>
-    </form> 
-
-    <!-- Implémentation future
-        
-    <form action="passwordfor.php" method="get">
-        <h1>Mot de passe oublié ?</h1>
-        <label for="email">Renseigner votre adresse mail</label>
-        <input type="email" id="emailf" name="email" placeholder="you@example.com">
-        <button type="submit">Confirmer la demande</button>
-    </form>-->
-
-<?php else: 
-    header('Location: index.php');?>
-<?php endif; ?>
-
-<?php /*
-include("HTMLEnd.php");
-*/?>
+        return $html;
+    }
+}

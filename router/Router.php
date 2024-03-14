@@ -158,6 +158,25 @@ class Router
     private function login()
     {
         require CONTROLLERS.DS.'LoginController.php';
+        $controller = new LoginController();
+        if(isset($_GET["Action"]))
+        {
+            switch(isset($_GET["Action"]))
+            {
+                case "checklogin":
+                    $controller->checklogin();   
+                    break;
+
+                case "logout":
+                    $controller->logout();
+                    break;
+                
+                default:
+                    $controller->show();
+                    break;
+            }
+        }
+        $controller->show(); 
     }
 
     private function register()
@@ -171,8 +190,5 @@ class Router
     }
 
     //register et utilisateur
-    
-
-
 
 }

@@ -42,7 +42,9 @@
                     </ul>
                     <ul class="navbar-nav ml-auto">
                         <?php 
-                            session_start();
+                            if(session_status() !== PHP_SESSION_ACTIVE) {
+                                session_start();
+                            }
                             if(isset($_SESSION['email'])) {
                                 echo '
                                         <li class="nav-item">
@@ -78,7 +80,7 @@
                     <li class="nav-item"><a href="index.php?Main=recettes" class="nav-link px-2 text-body-secondary">Recettes</a></li>
                     <li class="nav-item"><a href="index.php?Main=ingredients" class="nav-link px-2 text-body-secondary">Ingrédients</a></li>
                     <li class="nav-item"><a href="index.php?Main=admin" class="nav-link px-2 text-body-secondary">Admin</a></li>
-                    <li class="nav-item"><a href="index.php?Main=user" class="nav-link px-2 text-body-secondary">Déconnexion</a></li>
+                    <li class="nav-item"><a href="index.php?Main=login&Action=logout" class="nav-link px-2 text-body-secondary">Déconnexion</a></li>
                 </ul>
             </div>
         </div>
