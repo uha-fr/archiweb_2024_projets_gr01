@@ -161,7 +161,8 @@ class Router
         $controller = new LoginController();
         if(isset($_GET["Action"]))
         {
-            switch(isset($_GET["Action"]))
+            
+            switch($_GET["Action"])
             {
                 case "checklogin":
                     $controller->checklogin();   
@@ -171,24 +172,43 @@ class Router
                     $controller->logout();
                     break;
                 
+                case "forgotten":
+                    //$controller->forgotten(); Implementer cette fonction. 
+                    break;
                 default:
                     $controller->show();
                     break;
             }
         }
+
         $controller->show(); 
     }
 
     private function register()
     {
         require CONTROLLERS.DS.'RegisterController.php';
+        //$controller = new RegisterController();
+        $controller->show(); 
     }
 
     private function user()
     {
         require CONTROLLERS.DS.'UtilisateurController.php';
+        $controller = new UtilisateurController();
+        if(isset($_GET["Action"]))
+        {
+            
+            switch($_GET["Action"])
+            {
+                case "completeProfile":
+                    $controller->completeProfile();   
+                    break;
+
+                default:
+                    $controller->show();
+                    break;
+            }
+        }
+        $controller->show();
     }
-
-    //register et utilisateur
-
 }

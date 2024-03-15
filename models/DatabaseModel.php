@@ -1,6 +1,6 @@
 <?php
 
-class DatabaseController
+class DatabaseModel
 {
   private $serv = "localhost";
   private $usr = "root";
@@ -35,5 +35,6 @@ class DatabaseController
   public function prepare($query) {
     return $this->connection->prepare($query);
   }
+
 
 }

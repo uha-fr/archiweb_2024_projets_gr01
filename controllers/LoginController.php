@@ -2,10 +2,7 @@
 
 session_start(); 
 
-// Il faut obligatoirement un session_start. 
-
 class LoginController {
-    // Reste à gérer les cas de : déconnexion, code d'erreur lors du login et hop c'est carré. 
     public function show() {
         require VIEWS.DS.'LoginView.php';
         $v= new LoginView();
@@ -15,8 +12,6 @@ class LoginController {
         exit;
     }
     public function logout() {
-        // On ne passe peut-être pas dans la fonction, je vais continuer les tests plus tard... 
-        
         // Destroy the session.
         $_SESSION = array();
         session_destroy();
@@ -26,7 +21,7 @@ class LoginController {
             setcookie('loggedCookie', "", 1); 
         } 
         $_SESSION['error_message'] = "Vous êtes déconnectés."; 
-        header('Location: index.php'); // complete
+        header('Location: index.php'); 
     }
 
     public function setCurrentUserSession($data) {
@@ -52,12 +47,12 @@ class LoginController {
     public function checklogin() {
         if (isset($_POST['email'], $_POST['password']) && !empty($_POST['email']) && !empty($_POST['password'])) {
             require MODELS.DS.'DatabaseModel.php';
-            $db = new DatabaseController();
+            $db = new DatabaseModel();
     
             $email = $_POST['email'];
             $password = $_POST['password'];
     
-            // Get the MySQLi connection object from the DatabaseController
+            // Get the MySQLi connection object from the DatabaseModel
             $db->connect_bdd();
     
             // Prepare and execute the SQL query
@@ -81,14 +76,14 @@ class LoginController {
                     exit();
                 } else {
                     // Incorrect password, set error message and redirect to login page
-                    $_SESSION['error_message'] = "Mot de passe incorrect";
+                    $_SESSION['login_message'] = "Mot de passe incorrect";
                     header('Location: index.php?Main=login');
                     exit();
                 }
             }
         }
         // If login fails, redirect to login page
-        $_SESSION['error_message'] = "Aucun utilisateur trouvé pour l'email fourni";
+        $_SESSION['login_message'] = "Aucun utilisateur trouvé pour l'email fourni";
         header('Location: index.php?Main=login');
         exit();
     }

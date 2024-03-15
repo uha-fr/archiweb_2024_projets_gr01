@@ -9,13 +9,11 @@
         <button type="submit">Envoyer</button>
     </form> 
 
-    <?php if (isset($_SESSION['error_message'])) {
-            echo "<div class='error-message'>" . $_SESSION['error_message'] . "</div>";
-            unset($_SESSION['error_message']); 
-        } else {
-            echo "<div class='error-message'>Vous pouvez vous connecter</div>";
-        } 
-        ?> 
+    <?php if (isset($_SESSION['login_message'])) {
+            echo "<div>" . $_SESSION['login_message'] . "</div>";
+            unset($_SESSION['login_message']); 
+        }
+    ?> 
         
     <form action="index.php?Main=login&Action=forgotten" method="post">
         <h2>Mot de passe oublié ?</h2>
@@ -24,6 +22,6 @@
         <button type="submit">Confirmer la demande</button>
     </form>
     
-    <!-- <a href="register.php"> Pas encore inscrit ?</a> --> 
+    <a href="index.php?Main=register"> Pas encore inscrit ?</a> 
 
 </div>
