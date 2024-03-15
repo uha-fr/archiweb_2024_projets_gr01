@@ -1,7 +1,5 @@
 <?php
-
-class Router
-{
+class Router {
     function manageRequest(){
         if(isset($_GET["Main"]))
         {
@@ -40,7 +38,6 @@ class Router
         }
         
     }
-
     private function home()
     {
         require CONTROLLERS.DS.'HomeController.php';
@@ -66,7 +63,6 @@ class Router
         }
 
     }
-
     private function ingredients()
     {
         require CONTROLLERS.DS.'IngredientsController.php';
@@ -101,7 +97,6 @@ class Router
             $controller->show();
         }
     }
-
     private function recettes()
     {
         require CONTROLLERS.DS.'RecettesController.php';
@@ -131,7 +126,6 @@ class Router
             $controller->show();
         }
     }
-
     private function admin()
     {
         require CONTROLLERS.DS.'AdminController.php';
@@ -148,20 +142,18 @@ class Router
                     break;
             }
         }
-
         else
         {
             $controller->show();
         }
     }
-
-    private function login()
-    {
+    private function login() {
         require CONTROLLERS.DS.'LoginController.php';
         $controller = new LoginController();
         if(isset($_GET["Action"]))
         {
-            switch(isset($_GET["Action"]))
+            
+            switch($_GET["Action"])
             {
                 case "checklogin":
                     $controller->checklogin();   
@@ -171,6 +163,29 @@ class Router
                     $controller->logout();
                     break;
                 
+                case "forgotten":
+                    //$controller->forgotten(); Implementer cette fonction. 
+                    break;
+                default:
+                    $controller->show();
+                    break;
+            }
+        }
+
+        $controller->show(); 
+    }
+    private function register() {
+        require CONTROLLERS.DS.'RegisterController.php';
+        $controller = new RegisterController();
+        if(isset($_GET["Action"]))
+        {
+            
+            switch($_GET["Action"])
+            {
+                case "registerProcess":
+                    $controller->registerProcess();   
+                    break;
+                    
                 default:
                     $controller->show();
                     break;
@@ -178,17 +193,21 @@ class Router
         }
         $controller->show(); 
     }
-
-    private function register()
-    {
-        require CONTROLLERS.DS.'RegisterController.php';
-    }
-
-    private function user()
-    {
+    private function user(){
         require CONTROLLERS.DS.'UtilisateurController.php';
+        $controller = new UtilisateurController();
+        if(isset($_GET["Action"])){
+            
+            switch($_GET["Action"]){
+                case "completeProfile":
+                    $controller->completeProfile();   
+                    break;
+
+                default:
+                    $controller->show();
+                    break;
+            }
+        }
+        $controller->show();
     }
-
-    //register et utilisateur
-
 }
