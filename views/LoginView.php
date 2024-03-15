@@ -5,7 +5,7 @@ class LoginView {
         ob_start();
         $ressource = 'login';
         $methode = 'form';
-        require VIEWS.DS.'template.php'; // Préparer une autre template pour login/register !
+        require VIEWS.DS.'template.php'; 
         $html = ob_get_clean();
 
         return $html;
