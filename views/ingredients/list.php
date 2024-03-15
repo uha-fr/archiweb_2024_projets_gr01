@@ -5,7 +5,7 @@
     <button class="btn btn-outline-success" type="submit">Rechercher</button>
                 
     <div class="dropdown container">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Trier
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
