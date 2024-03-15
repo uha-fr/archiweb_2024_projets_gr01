@@ -1,7 +1,6 @@
 <?php
 
-class Ingredient
-{
+class Ingredient {
     private $id;
     private $nom;
     private $categorie;
@@ -35,8 +34,5 @@ class Ingredient
     public function getUrlImg(){
         return $this->url_image;
     }
-
 }
     
-
-?>

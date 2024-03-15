@@ -1,7 +1,6 @@
 <?php
 
-class Recette
-{
+class Recette {
     private $id;
     private $nom;
     private $description;
@@ -97,19 +96,4 @@ class Recette
     public function getIdCreateur(){
         return $this->id_createur;
     }
-
-
-
-
-
 }
-
-
-
-
-
-
-
-
-
-?>
