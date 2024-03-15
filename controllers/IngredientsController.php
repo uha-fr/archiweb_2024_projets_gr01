@@ -3,7 +3,7 @@ class IngredientsController {
   public function show() {
     require MODELS.DS.'IngredientsModel.php';
     require MODELS.DS.'DatabaseModel.php';
-    $db = new DatabaseController();
+    $db = new DatabaseModel();
     $ingredients = getAllIngredient($db);
     require VIEWS.DS.'IngredientsView.php';
     $v= new IngredientsView();
@@ -16,7 +16,7 @@ class IngredientsController {
   public function showone($id) {
     require MODELS.DS.'IngredientsModel.php';
     require MODELS.DS.'DatabaseModel.php';
-    $db = new DatabaseController();
+    $db = new DatabaseModel();
     $ingredient = getIngredient($db,$id);
     require VIEWS.DS.'IngredientsView.php';
     $v= new IngredientsView();
