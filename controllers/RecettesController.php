@@ -36,7 +36,7 @@ function getAllRecette($db)
         $recette = new Recette(
           $row['id_recette'],$row['nom'],$row['description'], $row['instruction'], 
           $row['difficulte'],$row['categorie'],$row['temps_preparation'],
-          $row['temps_cuisson'],$row['calorie'],$row['url_image'],$row['visibility'],
+          $row['temps_cuisson'],$row['calorie'],WEBROOT.$row['url_image'],$row['visibility'],
           $row['id_createur']);
         $recettes[] = $recette;
   }
@@ -57,7 +57,7 @@ function getRecette($db,$id)
       $recette = new Recette(
         $row['id_recette'],$row['nom'],$row['description'], $row['instruction'], 
         $row['difficulte'],$row['categorie'],$row['temps_preparation'],
-        $row['temps_cuisson'],$row['calorie'],$row['url_image'],$row['visibility'],
+        $row['temps_cuisson'],$row['calorie'],WEBROOT.$row['url_image'],$row['visibility'],
         $row['id_createur']);
     }
   $db->close_bdd();

@@ -69,7 +69,7 @@ class Router {
         $controller = new IngredientsController();
         if(isset($_GET["Action"]))
         {
-            switch(isset($_GET["Action"]))
+            switch($_GET["Action"])
             {
                 
                 case "showone":

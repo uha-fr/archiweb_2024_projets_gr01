@@ -35,7 +35,7 @@ function getAllIngredient($db)
   $result = $db->getConnection()->query($sql);
   $i = 0;
   while ($row = $result->fetch_assoc()) {
-        $ingredient = new Ingredient($row['id_ingredient'],$row['nom'],$row['categorie'], $row['calories'], $row['url_image']);
+        $ingredient = new Ingredient($row['id_ingredient'],$row['nom'],$row['categorie'], $row['calories'], WEBROOT.$row['url_image']);
         $ingredients[$i] = $ingredient;
         $i++;
   }
@@ -53,7 +53,7 @@ function getIngredient($db,$id)
       return null;
     } else {
       $row = $result->fetch_assoc();
-      $ingredient = new Ingredient($row['id_ingredient'],$row['nom'],$row['categorie'], $row['calories'], $row['url_image']);
+      $ingredient = new Ingredient($row['id_ingredient'],$row['nom'],$row['categorie'], $row['calories'], WEBROOT.$row['url_image']);
     }
   $db->close_bdd();
   return $ingredient;
