@@ -71,7 +71,6 @@ class Router {
         {
             switch($_GET["Action"])
             {
-                
                 case "showone":
                     //trigger_error("Oops!", E_USER_ERROR);
                     if(isset($_GET["id"]))

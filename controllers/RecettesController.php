@@ -27,7 +27,7 @@ class RecettesController {
   }
 }
 
-function getAllRecette($db)
+function getAllRecette($db, $trie = null)
 {
   $db->connect_bdd();
   $sql = "SELECT * FROM recette";
@@ -41,6 +41,32 @@ function getAllRecette($db)
         $recettes[] = $recette;
   }
   $db->close_bdd();
+
+
+  if($trie != null)
+  {
+    require_once("TrieGenerique.php");
+    
+    switch($trie)
+    {
+      case "NAME_A2Z":
+        $recettes = trierA2Z($recettes);
+        break;
+      
+      case "CATEGORIE_A2Z":
+        $recettes = trierCategorie($recettes);
+        break;
+
+      case "CALORIE_A2Z":
+        $recettes = trierCalorie($recettes);
+        break;
+      
+      default:
+        break;
+    }
+  }
+
+
   return $recettes;
 }
 
