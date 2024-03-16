@@ -8,6 +8,8 @@ define('VIEWS',ROOT.DS.'views');
 define('ROUTER',ROOT.DS.'router');
 define('WEBROOT', 'http://'.$_SERVER['SERVER_NAME'].(($_SERVER['SERVER_PORT'] == '80')?'':':'.$_SERVER['SERVER_PORT']).((dirname($_SERVER['SCRIPT_NAME']) == DS)?'':dirname($_SERVER['SCRIPT_NAME'])) );
 
+define('DIR',str_replace('\\', '/', ROOT));
+
 require ROUTER.DS.'Router.php';
 
 $r = New Router();
