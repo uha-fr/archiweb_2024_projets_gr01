@@ -4,7 +4,18 @@ class IngredientsController {
     require MODELS.DS.'IngredientsModel.php';
     require MODELS.DS.'DatabaseModel.php';
     $db = new DatabaseModel();
-    $ingredients = getAllIngredient($db);
+
+    if(isset($_GET["trie"]))
+    {
+      $methode_trie = $_GET["trie"];
+      $ingredients = getAllIngredient($db, $methode_trie);
+    }
+    else
+    {
+      $ingredients = getAllIngredient($db);
+    }
+
+    
     require VIEWS.DS.'IngredientsView.php';
     $v= new IngredientsView();
     $html=$v->publicList($ingredients);
@@ -28,7 +39,7 @@ class IngredientsController {
 
 }
 
-function getAllIngredient($db)
+function getAllIngredient($db, $trie = null)
 {
   $db->connect_bdd();
   $sql = "SELECT * FROM ingredient";
@@ -40,6 +51,30 @@ function getAllIngredient($db)
         $i++;
   }
   $db->close_bdd();
+
+  if($trie != null)
+  {
+    require_once("TrieGenerique.php");
+
+    switch($trie)
+    {
+      case "NAME_A2Z":
+        $ingredients = trierA2Z($ingredients);
+        break;
+      
+      case "CATEGORIE_A2Z":
+        $ingredients = trierCategorie($ingredients);
+        break;
+
+      case "CALORIE_A2Z":
+        $ingredients = trierCalorie($ingredients);
+        break;
+      
+      default:
+        break;
+    }
+  }
+
   return $ingredients;
 }
 
