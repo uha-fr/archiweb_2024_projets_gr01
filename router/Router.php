@@ -135,6 +135,9 @@ class Router {
                 case "show":
                     $controller->show();
                     break;
+                case "addIngredientForm":
+                    $controller->ajouter();
+                    break;
                 
                 default:
                     $controller->show();
