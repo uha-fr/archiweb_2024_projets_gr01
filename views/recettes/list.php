@@ -9,9 +9,9 @@
             Trier
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="index.php?Main=recettes&Action=show&trie=NAME_A2Z">Nom</a>
-            <a class="dropdown-item" href="index.php?Main=recettes&Action=show&trie=CATEGORIE_A2Z">Catégorie</a>
-            <a class="dropdown-item" href="index.php?Main=recettes&Action=show&trie=CALORIE_A2Z">Calorie</a>
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
             </div>
         </div>
 </form>

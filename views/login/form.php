@@ -9,9 +9,9 @@
         <button type="submit">Envoyer</button>
     </form> 
 
-    <?php if (isset($_SESSION['error_message'])) {
-            echo "<div class='error-message'>" . $_SESSION['error_message'] . "</div>";
-            unset($_SESSION['error_message']); 
+    <?php if (isset($_SESSION['login_message'])) {
+            echo "<div class='error-message'>" . $_SESSION['login_message'] . "</div>";
+            unset($_SESSION['login_message']); 
         } else {
             echo "<div class='error-message'>Vous pouvez vous connecter</div>";
         } 

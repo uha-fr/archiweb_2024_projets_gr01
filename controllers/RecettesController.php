@@ -25,9 +25,21 @@ class RecettesController {
     http_response_code(200);
     exit;
   }
+
+  public function getRecettes($db,$array)
+{
+  $recettes = [];
+  foreach ($array as $id) {
+    $recette = getRecette($db,$id);
+    if ($recette != null) {
+      $recettes[] = $recette;
+    }
+  }
+  return $recettes;
+} 
 }
 
-function getAllRecette($db, $trie = null)
+function getAllRecette($db)
 {
   $db->connect_bdd();
   $sql = "SELECT * FROM recette";
@@ -36,37 +48,11 @@ function getAllRecette($db, $trie = null)
         $recette = new Recette(
           $row['id_recette'],$row['nom'],$row['description'], $row['instruction'], 
           $row['difficulte'],$row['categorie'],$row['temps_preparation'],
-          $row['temps_cuisson'],$row['calorie'],WEBROOT.$row['url_image'],$row['visibility'],
+          $row['temps_cuisson'],$row['calorie'],$row['url_image'],$row['visibility'],
           $row['id_createur']);
         $recettes[] = $recette;
   }
   $db->close_bdd();
-
-
-  if($trie != null)
-  {
-    require_once("TrieGenerique.php");
-    
-    switch($trie)
-    {
-      case "NAME_A2Z":
-        $recettes = trierA2Z($recettes);
-        break;
-      
-      case "CATEGORIE_A2Z":
-        $recettes = trierCategorie($recettes);
-        break;
-
-      case "CALORIE_A2Z":
-        $recettes = trierCalorie($recettes);
-        break;
-      
-      default:
-        break;
-    }
-  }
-
-
   return $recettes;
 }
 
@@ -83,11 +69,11 @@ function getRecette($db,$id)
       $recette = new Recette(
         $row['id_recette'],$row['nom'],$row['description'], $row['instruction'], 
         $row['difficulte'],$row['categorie'],$row['temps_preparation'],
-        $row['temps_cuisson'],$row['calorie'],WEBROOT.$row['url_image'],$row['visibility'],
+        $row['temps_cuisson'],$row['calorie'],$row['url_image'],$row['visibility'],
         $row['id_createur']);
     }
   $db->close_bdd();
   return $recette;
 }
 
-?>
+

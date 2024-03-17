@@ -1,5 +1,5 @@
 <div class="bg-body-tertiary p-5 rounded">
-
+<h2>Inscription</h2> 
 <?php 
     if (isset($_SESSION['register_message'])) {
         echo "<div>" . $_SESSION['register_message'] . "</div>";

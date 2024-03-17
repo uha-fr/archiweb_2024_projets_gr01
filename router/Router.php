@@ -69,8 +69,9 @@ class Router {
         $controller = new IngredientsController();
         if(isset($_GET["Action"]))
         {
-            switch($_GET["Action"])
+            switch(isset($_GET["Action"]))
             {
+                
                 case "showone":
                     //trigger_error("Oops!", E_USER_ERROR);
                     if(isset($_GET["id"]))
@@ -163,7 +164,25 @@ class Router {
                     break;
                 
                 case "forgotten":
-                    //$controller->forgotten(); Implementer cette fonction. 
+                    $controller->forgotten(); 
+                    break;
+
+                case "emailsent":
+                    $controller->emailsent();
+                    break;
+
+                case "reset":
+                    if(isset($_GET["token"]))
+                    {
+                        $controller->reset($_GET["token"]);
+                    }  
+                    else{
+                        $controller->show(); 
+                    }
+                    break ; 
+
+                case "passwordChanges":
+                    $controller->passwordChanges();
                     break;
                 default:
                     $controller->show();

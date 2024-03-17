@@ -4,18 +4,35 @@ session_start();
 
 class UtilisateurController{
     public function show() {
-        //require MODELS.DS.'UtilisateurModel.php'; Se pencher si oui ou non on réalise un modèle User. 
+        require MODELS.DS.'UtilisateurModel.php';
         require MODELS.DS.'DatabaseModel.php';
+        require CONTROLLERS.DS.'RecettesController.php' ; 
+        require MODELS.DS.'RecettesModel.php';
         $db = new DatabaseModel();
-        //$user = getUserInfo($db); 
+        $user = $this->getUserInfo($db);
 
         // Faire un check si l'utilisateur est connecté, si oui on affiche la vue, sinon on redirige vers la page de login ! 
         require VIEWS.DS.'UtilisateurView.php';
         $v= new UtilisateurView(); 
-        $html=$v->display();
+
+        $recettesControll = new RecettesController();
+        $recettes = $recettesControll->getRecettes($db, $user->getIdRecettes());
+        $html = $v->display($user, $recettes);
         echo $html;
         http_response_code(200);
         exit;
+    }
+
+    private function getUserInfo($db){
+        $db->connect_bdd();
+        $sql = "SELECT * FROM utilisateur WHERE email = '".$_SESSION['email']."'";
+        $result = $db->getConnection()->query($sql);
+        $row = $result->fetch_assoc();
+        $user = new User(
+            $row['id_utilisateur'],$row['email'],$row['pseudo'],$row['taille'],$row['poids'],$row['type_utilisateur']
+        );
+        $db->close_bdd();
+        return $user;
     }
 
     private function sanitizeInput($input) {
@@ -43,18 +60,18 @@ class UtilisateurController{
 
                 $db->close_bdd();
 
-                $_SESSION['complete_message'] = "Vos données ont bien été modifiées.";
+                $_SESSION['complete_message'] = " - Vos données ont bien été modifiées.";
                 header('Location: index.php?Main=user');
                 exit();
             }
             else{
-                $_SESSION['complete_message'] = "Les données ne correspondent pas aux standards !";
+                $_SESSION['complete_message'] = " - Les données ne correspondent pas aux standards !";
                 header('Location: index.php?Main=user');
                 exit();
             }
         }
         else{
-            $_SESSION['complete_message'] = "Valeurs nulles";
+            $_SESSION['complete_message'] = " - Les valeurs sont nulles ! ";
             header('Location: index.php?Main=user');
             exit();
         }

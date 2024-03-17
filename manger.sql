@@ -44,15 +44,15 @@ CREATE TABLE IF NOT EXISTS `ingredient` (
 --
 
 INSERT INTO `ingredient` (`id_ingredient`, `nom`, `categorie`, `calories`, `url_image`) VALUES
-(1, 'Tomate', 'Fruit', 25, '/assets/img/ingredients/tomate.jpeg'),
-(2, 'Poivron', 'Légume', 12, '/assets/img/ingredients/poivron.jpeg'),
-(3, 'Pomme', 'Fruit', 56, '/assets/img/ingredients/pomme.jpeg'),
-(4, 'Banane', 'Fruit', 95, '/assets/img/ingredients/banane.jpeg'),
-(5, 'Pomme de terre', 'Légume', 12, '/assets/img/ingredients/pomme2terre.jpeg'),
-(7, 'Carotte', 'Légume', 58, '/assets/img/ingredients/carotte.jpeg'),
-(8, 'Oeuf', '', 99, '/assets/img/ingredients/oeuf.jpeg'),
-(9, 'Sucre', '', 5, '/assets/img/ingredients/sucre.jpeg'),
-(10, 'Poireau', 'Légume', 12, '/assets/img/ingredients/poireau.jpeg');
+(1, 'Tomate', 'Fruit', 25, 'assets/img/ingredients/tomate.jpeg'),
+(2, 'Poivron', 'Légume', 12, 'assets/img/ingredients/poivron.jpeg'),
+(3, 'Pomme', 'Fruit', 56, 'assets/img/ingredients/pomme.jpeg'),
+(4, 'Banane', 'Fruit', 95, 'assets/img/ingredients/banane.jpeg'),
+(5, 'Pomme de terre', 'Légume', 12, 'assets/img/ingredients/pomme2terre.jpeg'),
+(7, 'Carotte', 'Légume', 58, 'assets/img/ingredients/carotte.jpeg'),
+(8, 'Oeuf', '', 99, 'assets/img/ingredients/oeuf.jpeg'),
+(9, 'Sucre', '', 5, 'assets/img/ingredients/sucre.jpeg'),
+(10, 'Poireau', 'Légume', 12, 'assets/img/ingredients/poireau.jpeg');
 
 -- --------------------------------------------------------
 
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `recette` (
 --
 
 INSERT INTO `recette` (`id_recette`, `nom`, `description`, `instruction`, `difficulte`, `categorie`, `temps_preparation`, `temps_cuisson`, `calorie`, `url_image`, `visibility`, `id_createur`) VALUES
-(1, 'Tomate automate', 'Tomate aux tomates', '1.Tomate\r\n2.Automate\r\n3.Aux tomates ?', 1, 'Plat', 1, NULL, 25, '/assets/img/recettes/automate.jpeg', 'Private', 1);
+(1, 'Tomate automate', 'Tomate aux tomates', '1.Tomate\r\n2.Automate\r\n3.Aux tomates ?', 1, 'Plat', 1, NULL, 25, 'assets/img/recettes/automate.jpeg', 'Private', 1);
 
 -- --------------------------------------------------------
 

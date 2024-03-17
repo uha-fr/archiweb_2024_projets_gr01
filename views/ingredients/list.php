@@ -5,13 +5,13 @@
     <button class="btn btn-outline-success" type="submit">Rechercher</button>
                 
     <div class="dropdown container">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Trier
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="index.php?Main=ingredients&Action=show&trie=NAME_A2Z">Nom</a>
-        <a class="dropdown-item" href="index.php?Main=ingredients&Action=show&trie=CATEGORIE_A2Z">Catégorie</a>
-        <a class="dropdown-item" href="index.php?Main=ingredients&Action=show&trie=CALORIE_A2Z">Calorie</a>
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
     </div>
     </div>
 </form>

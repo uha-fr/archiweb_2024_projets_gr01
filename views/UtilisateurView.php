@@ -1,6 +1,6 @@
 <?php
 class UtilisateurView {
-    public function display() {
+    public function display($user, $recettes) {
         ob_start();
         $ressource = 'utilisateur';
         $methode = 'infos';
