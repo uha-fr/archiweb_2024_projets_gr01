@@ -149,6 +149,8 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `mot_de_passe` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `poids` int NOT NULL,
   `taille` int NOT NULL,
+  `date_request` datetime, 
+  `token` varchar(100), 
   `type_utilisateur` enum('Standard','Premium','Nutritionniste','Admin') COLLATE utf8mb4_general_ci DEFAULT 'Standard',
   PRIMARY KEY (`id_utilisateur`)
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
